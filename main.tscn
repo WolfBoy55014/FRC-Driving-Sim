@@ -1,5 +1,7 @@
-[gd_scene format=3 uid="uid://vrv15ddnyv36"]
+[gd_scene load_steps=2 format=3 uid="uid://vrv15ddnyv36"]
+
+[ext_resource type="PackedScene" uid="uid://b11ijy7736wuw" path="res://resources/Crescendo_exported.glb" id="1_so3wq"]
 
 [node name="Node3D" type="Node3D"]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="Crescendo_exported" parent="." instance=ExtResource("1_so3wq")]
