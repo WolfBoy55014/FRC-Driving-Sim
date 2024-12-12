@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b7s6r68dc2r5u"
+path="res://.godot/imported/striped_note.obj-0339d2a66aa5cf1c8f4e416d843d609b.mesh"
+
+[deps]
+
+files=["res://.godot/imported/striped_note.obj-0339d2a66aa5cf1c8f4e416d843d609b.mesh"]
+
+source_file="res://resources/striped_note.obj"
+dest_files=["res://.godot/imported/striped_note.obj-0339d2a66aa5cf1c8f4e416d843d609b.mesh", "res://.godot/imported/striped_note.obj-0339d2a66aa5cf1c8f4e416d843d609b.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
