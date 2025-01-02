@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://beo7sxq8lqbki"]
+
+[ext_resource type="PackedScene" uid="uid://cm461cgqsnewu" path="res://ui/options/simulation.tscn" id="1_gf0uw"]
+[ext_resource type="PackedScene" uid="uid://clr5g7xmvp55y" path="res://ui/options/video.tscn" id="2_ghhrn"]
+
+[node name="Options" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HSplitContainer" type="HSplitContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 12.0
+
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer/HSplitContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+current_tab = 0
+
+[node name="Simulation" parent="VBoxContainer/HSplitContainer/TabContainer" instance=ExtResource("1_gf0uw")]
+layout_mode = 2
+
+[node name="Video" parent="VBoxContainer/HSplitContainer/TabContainer" instance=ExtResource("2_ghhrn")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Control" type="Control" parent="VBoxContainer/HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Exit"

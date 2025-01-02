@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://cm461cgqsnewu"]
+
+[node name="Simulation" type="ScrollContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_tab_index = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Field Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Field"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Field" type="OptionButton" parent="VBoxContainer"]
+layout_mode = 2
+item_count = 1
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Robot Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Robot"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Robot" type="OptionButton" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2

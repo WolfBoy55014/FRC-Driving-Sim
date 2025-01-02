@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://vrv15ddnyv36"]
+[gd_scene load_steps=7 format=3 uid="uid://vrv15ddnyv36"]
 
 [ext_resource type="PackedScene" uid="uid://bprpv2thibea4" path="res://fields/2024_crescendo.tscn" id="1_5wv22"]
+[ext_resource type="Script" path="res://orbit.gd" id="2_cs72x"]
+[ext_resource type="PackedScene" uid="uid://beo7sxq8lqbki" path="res://ui/options/options.tscn" id="3_8i23b"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lgant"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -25,3 +27,11 @@ transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -
 shadow_enabled = true
 
 [node name="Field" parent="." instance=ExtResource("1_5wv22")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 5, 9)
+script = ExtResource("2_cs72x")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Options" parent="CanvasLayer" instance=ExtResource("3_8i23b")]
