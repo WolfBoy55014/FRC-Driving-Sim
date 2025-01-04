@@ -40,3 +40,23 @@ func _on_v_sync_toggled(toggled_on: bool) -> void:
 func _on_fps_slider_drag_ended(value_changed: bool) -> void:
 	if value_changed:
 		Engine.max_fps = fps_slider.value
+
+
+func _on_anti_aliasing_item_selected(index: int) -> void:
+	RenderingServer.viewport_set_msaa_3d(get_tree().get_root().get_viewport_rid(), RenderingServer.VIEWPORT_MSAA_DISABLED)
+	RenderingServer.viewport_set_use_taa(get_tree().get_root().get_viewport_rid(), false)
+	RenderingServer.viewport_set_screen_space_aa(get_tree().get_root().get_viewport_rid(), RenderingServer.VIEWPORT_SCREEN_SPACE_AA_DISABLED)
+	
+	match index:
+		0:
+			RenderingServer.viewport_set_msaa_3d(get_tree().get_root().get_viewport_rid(), RenderingServer.VIEWPORT_MSAA_DISABLED)
+		1:
+			RenderingServer.viewport_set_msaa_3d(get_tree().get_root().get_viewport_rid(), RenderingServer.VIEWPORT_MSAA_2X)
+		2:
+			RenderingServer.viewport_set_msaa_3d(get_tree().get_root().get_viewport_rid(), RenderingServer.VIEWPORT_MSAA_4X)
+		3:
+			RenderingServer.viewport_set_msaa_3d(get_tree().get_root().get_viewport_rid(), RenderingServer.VIEWPORT_MSAA_8X)
+		4:
+			RenderingServer.viewport_set_use_taa(get_tree().get_root().get_viewport_rid(), true)
+		5:
+			RenderingServer.viewport_set_screen_space_aa(get_tree().get_root().get_viewport_rid(), RenderingServer.VIEWPORT_SCREEN_SPACE_AA_FXAA)

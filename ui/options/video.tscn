@@ -86,7 +86,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 4
 size_flags_stretch_ratio = 20.0
 min_value = 5.0
-max_value = 1000.0
+max_value = 2000.0
 step = 5.0
 value = 60.0
 exp_edit = true
@@ -95,11 +95,36 @@ ticks_on_borders = true
 [node name="HSeparator4" type="HSeparator" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="Aliasing" type="CheckButton" parent="VBoxContainer"]
+[node name="AA Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "Anti-Aliasing"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Anti-Aliasing" type="OptionButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+alignment = 1
+selected = 0
+item_count = 6
+popup/item_0/text = "None"
+popup/item_1/text = "2X"
+popup/item_1/id = 1
+popup/item_2/text = "4X"
+popup/item_2/id = 2
+popup/item_3/text = "8X"
+popup/item_3/id = 3
+popup/item_4/text = "TAA (slower, Forward+ only)"
+popup/item_4/id = 4
+popup/item_5/text = "FXAA (fast, mobile)"
+popup/item_5/id = 5
+
+[node name="HSeparator5" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
 
 [connection signal="toggled" from="VBoxContainer/Fullscreen" to="." method="_on_fullscreen_toggled"]
 [connection signal="toggled" from="VBoxContainer/V-Sync" to="." method="_on_v_sync_toggled"]
 [connection signal="drag_ended" from="VBoxContainer/Resolution/Resolution Slider" to="." method="_on_resolution_slider_drag_ended"]
 [connection signal="drag_ended" from="VBoxContainer/Frame Rate/FPS Slider" to="." method="_on_fps_slider_drag_ended"]
+[connection signal="item_selected" from="VBoxContainer/Anti-Aliasing" to="." method="_on_anti_aliasing_item_selected"]
