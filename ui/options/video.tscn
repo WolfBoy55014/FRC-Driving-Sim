@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://clr5g7xmvp55y"]
+[gd_scene load_steps=4 format=3 uid="uid://clr5g7xmvp55y"]
 
 [ext_resource type="Script" path="res://scripts/options/video.gd" id="1_tsxu2"]
+[ext_resource type="Script" path="res://scripts/options/resolution.gd" id="2_k3144"]
+[ext_resource type="Script" path="res://scripts/options/frame_rate.gd" id="3_xc8rj"]
 
 [node name="Video" type="ScrollContainer"]
 anchors_preset = 15
@@ -19,4 +21,85 @@ size_flags_horizontal = 3
 layout_mode = 2
 text = "Fullscreen"
 
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="V-Sync" type="CheckButton" parent="VBoxContainer"]
+layout_mode = 2
+button_pressed = true
+text = "V-Sync"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Resolution Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Resolution"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Resolution" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+script = ExtResource("2_k3144")
+
+[node name="Resolution Label" type="Label" parent="VBoxContainer/Resolution"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "1.00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Resolution Slider" type="HSlider" parent="VBoxContainer/Resolution"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 20.0
+min_value = 0.1
+max_value = 4.0
+step = 0.1
+value = 1.0
+ticks_on_borders = true
+
+[node name="HSeparator3" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="FPS Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Frame Rate"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Frame Rate" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+script = ExtResource("3_xc8rj")
+
+[node name="FPS Label" type="Label" parent="VBoxContainer/Frame Rate"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "1.00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FPS Slider" type="HSlider" parent="VBoxContainer/Frame Rate"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 20.0
+min_value = 5.0
+max_value = 1000.0
+step = 5.0
+value = 60.0
+exp_edit = true
+ticks_on_borders = true
+
+[node name="HSeparator4" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Aliasing" type="CheckButton" parent="VBoxContainer"]
+layout_mode = 2
+text = "Anti-Aliasing"
+
 [connection signal="toggled" from="VBoxContainer/Fullscreen" to="." method="_on_fullscreen_toggled"]
+[connection signal="toggled" from="VBoxContainer/V-Sync" to="." method="_on_v_sync_toggled"]
+[connection signal="drag_ended" from="VBoxContainer/Resolution/Resolution Slider" to="." method="_on_resolution_slider_drag_ended"]
+[connection signal="drag_ended" from="VBoxContainer/Frame Rate/FPS Slider" to="." method="_on_fps_slider_drag_ended"]
